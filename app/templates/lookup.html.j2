@@ -11,7 +11,7 @@ Pokemon Lookup
 <br>
 <br>
 
-<form action = "/lookup" method = "POST">
+<form action = "{{url_for('lookup')}}" method = "POST">
   <div class="mb-3">
     <label for="pokemon_name" class="form-label"><strong>Pokemon Name</strong></label>
     <input type="text" name = "pokemon" class="form-control" id="pokemon_name">
