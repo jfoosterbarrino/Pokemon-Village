@@ -2,20 +2,23 @@
 {% block title %}
 Pokemon Lookup
 {% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/login.css')}}">
+{% endblock %}
 
 {% block content %}
 <br>
-<h1> Pokemon Lookup </h1>
+<h1 style = "text-align: center"> Pokemon Lookup </h1>
 
 <hr>
 <br>
 <br>
 
-<form action = "{{url_for('lookup')}}" method = "POST">
+<form action = "{{url_for('main.lookup')}}" method = "POST">
     {{form.hidden_tag()}}
     <div>
     {{form.pokemon.label(class = "form-label")}}
-    {{form.pokemon(class = "form-control")}}
+    {{form.pokemon(class = "form-control", style = "text-align: center")}}
     {% for error in form.pokemon.errors %}
     <small style = "color:red;"> {{error}} </small>
     {% endfor %}
@@ -32,13 +35,14 @@ Pokemon Lookup
 
 {% if pokemons %}
 
-  <table class="table table-striped table-hover table-dark">
+  <table class="table table-striped table-hover table-info">
     <thead>
       <tr>
+        <th scope="col">Photo</th>
         <th scope="col">Name</th>
         <th scope="col">Ability</th>
         <th scope="col">Base XP</th>
-        <th scope="col">Sprite</th>
+        <th scope="col">Sprite URL</th>
         <th scope="col">Base Attack</th>
         <th scope="col">Base HP</th>
         <th scope="col">Base Defense</th>
@@ -47,7 +51,8 @@ Pokemon Lookup
     <tbody>
     {% for info in pokemons %}
       <tr>
-        <th scope="row">{{info.name}}</th>
+        <th scope="row"><img src = {{info.sprite}}></th>
+        <td>{{info.name}}</td>
         <td>{{info.ability}}</td>
         <td>{{info.base_experience}}</td>
         <td>{{info.sprite}}</td>
