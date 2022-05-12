@@ -38,7 +38,9 @@ def register():
             'last_name' : form.last_name.data.title(),
             'email' : form.email.data.lower(),
             'password' : form.password.data,
-            'icon' : form.icon.data
+            'icon' : form.icon.data,
+            'wins' : 0,
+            'losses' : 0
         }
 
         new_user_object = User()

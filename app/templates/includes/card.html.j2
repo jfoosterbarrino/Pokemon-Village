@@ -1,0 +1,45 @@
+<article>
+<div class="card" style="width: 18rem;">
+  <img src= {{pokemon.sprite}} class="card-img-top">
+  <div class="card-body">
+    <h5 class="card-title">{{pokemon.name.title()}}</h5>
+    {% if pokemon not in current_user.pokemen.all() %}
+    <a href = "{{url_for('build.catch', name = pokemon.name)}}"><button type="button" class="btn btn-danger">CATCH</button></a>
+    {% else %}
+    <a href = "{{url_for('build.release', id = pokemon.poke_id)}}"><button type="button" class="btn btn-danger">RELEASE</button></a>
+    {% endif %}
+  </div>
+</div>
+<br>
+
+</article>
+
+  <table class="table table-striped table-hover table-info">
+    <thead>
+      <tr>
+        <th scope="col">Photo</th>
+        <th scope="col">Name</th>
+        <th scope="col">Ability</th>
+        <th scope="col">Base XP</th>
+        <th scope="col">Sprite URL</th>
+        <th scope="col">Base Attack</th>
+        <th scope="col">Base HP</th>
+        <th scope="col">Base Defense</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+      <tr>
+        <th scope="row"><img src = {{pokemon.sprite2}}></th>
+        <td>{{pokemon.name.title()}}</td>
+        <td>{{pokemon.ability.title()}}</td>
+        <td>{{pokemon.base_exp}}</td>
+        <td>{{pokemon.sprite}}</td>
+        <td>{{pokemon.attack}}</td>
+        <td>{{pokemon.hp}}</td>
+        <td>{{pokemon.defense}}</td>
+      </tr>
+    
+    </tbody>
+  </table>
+

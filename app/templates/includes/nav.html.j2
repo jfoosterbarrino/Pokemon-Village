@@ -8,7 +8,9 @@
             <div class="navbar-nav">
                 {% if current_user.is_authenticated %}
                 <a class="nav-link" href="{{url_for('main.index')}}">Home</a>
-                <a class="nav-link" href="{{url_for('main.lookup')}}">Lookup</a>
+                <a class="nav-link" href="{{url_for('main.lookup')}}">Catch</a>
+                <a class="nav-link" href="{{url_for('build.my_pokemon')}}">My Cards</a>
+                <a class="nav-link" href="{{url_for('build.battle')}}">Battle</a>
                 {% else %}
                 <a class="nav-link" href="{{url_for('auth.login')}}">Login</a>
                 <a class="nav-link" href="{{url_for('auth.register')}}">Register</a>
@@ -16,7 +18,7 @@
             </div>
                 {% if current_user.is_authenticated %}
                 <ul class="navbar-nav ms-auto align-items-center">
-                <a href='#'>
+                <a href="{{url_for('build.user_info')}}">
                     <img src="{{current_user.get_icon_url()}}" style="height:50px;">
                 </a>
                 <li class="nav-item">

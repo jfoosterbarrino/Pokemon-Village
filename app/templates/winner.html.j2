@@ -1,0 +1,90 @@
+{% extends 'base.html.j2' %}
+{% block title %}
+WINNER
+{% endblock %}
+
+{%block content %}
+{% if i_won %}
+<h1 style = "text-align:center">YOU DID IT! TEAM {{user.first_name.upper()}} WON !!!</h1>
+{% else %}
+<h1 style = "text-align:center">TEAM {{user.first_name.upper()}} LOSS.. Better Luck Next Time.</h1>
+{% endif %}
+<hr>
+<br>
+{% if i_won %}
+<article id = "winner">
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{user.get_icon_url()}}" class="img-fluid rounded-start" alt="...">
+      {% for pokemon in user.pokemen %}
+        <img src="{{pokemon.sprite2}}" class="img-fluid rounded-start" alt="...">
+        {% endfor %}
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><strong>{{user.first_name.title()}} {{user.last_name.title()}}</strong></h5>
+        <br>
+        <p class="card-text"><strong>Email</strong></p>
+        <hr>
+        <p class="card-text">{{user.email}}</p>
+        <p class="card-text"><strong>Team</strong></p>
+        <hr>
+        {% for pokemon in user.pokemen %}
+        <p class="card-text">{{pokemon.name.title()}}</p>
+        {% endfor %}
+        <hr>
+        <p class="card-text">Wins: {{user.wins}}</p>
+        <p class="card-text">Losses: {{user.losses}}</p>
+        <p class="card-text"><strong>Record: {{user.wins}}-{{user.losses}}</strong></p>
+        <hr>
+        <br>
+        <p class="card-text"><small class="text-muted">Created: {{user.created_on}}</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+</article>
+{%else%}
+<article id = "loser">
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{user.get_icon_url()}}" class="img-fluid rounded-start" alt="...">
+      {% for pokemon in user.pokemen %}
+        <img src="{{pokemon.sprite2}}" class="img-fluid rounded-start" alt="...">
+        {% endfor %}
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><strong>{{user.first_name.title()}} {{user.last_name.title()}}</strong></h5>
+        <br>
+        <p class="card-text"><strong>Email</strong></p>
+        <hr>
+        <p class="card-text">{{user.email}}</p>
+        <p class="card-text"><strong>Team</strong></p>
+        <hr>
+        {% for pokemon in user.pokemen %}
+        <p class="card-text">{{pokemon.name.title()}}</p>
+        {% endfor %}
+        <hr>
+        <p class="card-text">Wins: {{user.wins}}</p>
+        <p class="card-text">Losses: {{user.losses}}</p>
+        <p class="card-text"><strong>Record: {{user.wins}}-{{user.losses}}</strong></p>
+        <hr>
+        <br>
+        <p class="card-text"><small class="text-muted">Created: {{user.created_on}}</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+</article>
+{% endif %}
+<br>
+<br>
+<div class="d-grid gap-2" style= "text-align:center">
+  <a href = "{{url_for('build.battle')}}"><button type="button" class="btn btn-warning btn-lg"><strong>FIND ANOTHER OPPONENT</strong></button></a>
+</div>
+
+
+{% endblock %}

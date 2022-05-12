@@ -1,0 +1,44 @@
+{% extends 'base.html.j2' %}
+{% block title %}
+My Info
+{% endblock %}
+
+{% block content %}
+<h1 style ="text-align: center">My Info</h1>
+<hr>
+<br>
+
+<article>
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{user.get_icon_url()}}" class="img-fluid rounded-start" alt="...">
+      {% for pokemon in user.pokemen %}
+        <img src="{{pokemon.sprite2}}" class="img-fluid rounded-start" alt="...">
+        {% endfor %}
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><strong>{{user.first_name.title()}} {{user.last_name.title()}}</strong></h5>
+        <br>
+        <p class="card-text"><strong>Email</strong></p>
+        <hr>
+        <p class="card-text">{{user.email}}</p>
+        <p class="card-text"><strong>Team</strong></p>
+        <hr>
+        {% for pokemon in user.pokemen %}
+        <p class="card-text">{{pokemon.name.title()}}</p>
+        {% endfor %}
+        <hr>
+        <p class="card-text">Wins: {{user.wins}}</p>
+        <p class="card-text">Losses: {{user.losses}}</p>
+        <p class="card-text"><strong>Record: {{user.wins}}-{{user.losses}}</strong></p>
+        <hr>
+        <br>
+        <p class="card-text"><small class="text-muted">Created: {{user.created_on}}</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+</article>
+{% endblock %}

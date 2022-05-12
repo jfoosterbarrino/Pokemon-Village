@@ -1,0 +1,16 @@
+<article>
+<div class="card" style="width: 18rem;">
+  <img src= "{{pokemaster.get_icon_url()}}" class="card-img-top">
+  <div class="card-body">
+    <h5 class="card-title">{{pokemaster.first_name.title()}} {{pokemaster.last_name.title()}}</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">WINS: {{pokemaster.wins}}</li>
+    <li class="list-group-item">LOSSES: {{pokemaster.losses}}</li>
+    <li class="list-group-item">RECORD: {{pokemaster.wins}}-{{pokemaster.losses}}</li>
+  </ul>
+  <div class="card-body">
+    <a href = "{{url_for('build.attack', id = pokemaster.id)}}"><button type="button" class="btn btn-danger">ATTACK</button></a>
+  </div>
+</div>
+</article>

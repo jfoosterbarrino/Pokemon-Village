@@ -1,0 +1,71 @@
+{% extends 'base.html.j2' %}
+{% block title %}
+Pokemon Duel
+{% endblock %}
+
+{% block content %}
+<h1 style = "text-align:center">Time to Duel!</h1>
+<hr>
+<br>
+
+<article-top>
+<h3 style ="text-align:center">{{current_user.first_name.title()}}'s Team</h3>
+<br>
+<br>
+        <div class="row row-cols-1 row-cols-md-5 g-4">
+{% for card in cards1 %}
+  <div class="col">
+    <div class="card h-100">
+      <img src={{card.sprite}} class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><strong>{{card.name.title()}}</strong></h5>
+        <hr>
+        <p class="card-text">Ability: {{card.ability.title()}}</p>
+        <p class="card-text">XP: {{card.base_exp}}</p>
+        <p class="card-text">HP: {{card.hp}}</p>
+        <p class="card-text">Attack: {{card.attack}}</p>
+        <p class="card-text">Defense: {{card.defense}}</p>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+</article-top>
+
+<br>
+<br>
+<div class="d-grid gap-2" style= "text-align:center">
+  <a href = "{{url_for('build.fight', id = pokemaster.id )}}"><button type="button" class="btn btn-danger btn-lg"><strong>FIGHT</strong></button></a>
+</div>
+<br>
+<br>
+
+
+
+
+<article-bottom>
+<h3 style ="text-align:center">{{pokemaster.first_name.title()}}'s Team</h3>
+<br>
+<br>
+        <div class="row row-cols-1 row-cols-md-5 g-4">
+{% for pokemon in cards2 %}
+  <div class="col">
+    <div class="card h-100">
+      <img src= {{pokemon.sprite}} class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><strong>{{pokemon.name.title()}}</strong></h5>
+        <hr>
+        <p class="card-text">Ability: {{pokemon.ability.title()}}</p>
+        <p class="card-text">XP: {{pokemon.base_exp}}</p>
+        <p class="card-text">HP: {{pokemon.hp}}</p>
+        <p class="card-text">Attack: {{pokemon.attack}}</p>
+        <p class="card-text">Defense: {{pokemon.defense}}</p>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+</article-bottom>
+
+
+{% endblock %}

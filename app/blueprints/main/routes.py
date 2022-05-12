@@ -1,14 +1,14 @@
-from flask import render_template, request
+from flask import render_template, request, flash
 import requests
 from .forms import PokemonForm
 from . import bp as main
-from flask_login import login_required
+from flask_login import login_required, current_user
 
 
 @main.route ('/', methods = ['GET'])
 @login_required
 def index():
-    return render_template('index.html.j2')
+    return render_template('index.html.j2', user = current_user)
 
 
 @main.route('/lookup', methods =['GET','POST'])
@@ -22,19 +22,20 @@ def lookup():
         url =  f'https://pokeapi.co/api/v2/pokemon/{pokemon}'
         response = requests.get(url)
         if not response.ok:
-            error_string = 'We had an error'
-            return render_template('lookup.html.j2', error=error_string)
+            flash('Pokemon does not exist','danger')
+            return render_template('lookup.html.j2',  form = form)
 
         data = response.json()
         new_data = []
         pokemon_data = {
             "name": data["name"],
             "ability": data["abilities"][0]["ability"]["name"],
-            "base_experience": data["base_experience"],
-            "sprite": data["sprites"]["front_shiny"],
-            "base_attack": data["stats"][1]["base_stat"],
-            "base_hp": data["stats"][0]["base_stat"],
-            "base_defense": data["stats"][2]["base_stat"]
+            "base_exp": data["base_experience"],
+            "sprite": data["sprites"]["other"]["dream_world"]["front_default"],
+            "attack": data["stats"][1]["base_stat"],
+            "hp": data["stats"][0]["base_stat"],
+            "defense": data["stats"][2]["base_stat"],
+            "sprite2": data["sprites"]["front_shiny"]
         }
         new_data.append(pokemon_data)
         

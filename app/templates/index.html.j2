@@ -5,14 +5,27 @@ Greetings
 
 {% block content %}
 <header>
-<h1><strong>WELCOME TO POKEMON VILLAGE!</strong></h1>
+<h1><strong>POKEMON VILLAGE</strong></h1>
 <hr>
 <br>
-<h4><strong>Hi Future Pokemon Master!</strong></h4>
+
+
+<div class="card text-center" id ="home_card">
+  <div class="card-body">
+    <h5 class="card-title"><strong>Welcome back {{current_user.first_name.title()}}!</strong></h5>
+    <p class="card-text">We know you have what it takes to be the very best Pokemon Master there has ever been. We are lucky to have you here in Pokemon Village and very excited to see what you've got. Feel free to explore every thing we have to offer here.</p>
+    <h5><strong>Connect. Train. Battle.</strong></h5>
+    <h4><strong>CATCH 'EM ALL!!!</strong></h4>
+  </div>
+</div>
+
+
+
+{# <h4><strong>Welcome back {{current_user.first_name.title()}}!</strong></h4>
 <br>
-<p>We've heard that you have what it takes to be the very best Pokemon Master there has ever been. We are lucky to have you here in Pokemon Village and very excited to see what you've got. Feel free to explore every thing we have to offer here.</p>
+<p>We know you have what it takes to be the very best Pokemon Master there has ever been. We are lucky to have you here in Pokemon Village and very excited to see what you've got. Feel free to explore every thing we have to offer here.</p>
 <h5><strong>Connect. Train. Battle.</strong></h5>
-<h3><strong>CATCH 'EM ALL!!!</strong></h3>
+<h3><strong>CATCH 'EM ALL!!!</strong></h3> #}
 
 </header>
 
@@ -54,23 +67,33 @@ Greetings
     <main>
 
     <div id = "connect">
-    <h4>Connect</h4> 
-    <h6>with</h6>
-    <h4>Trainers</h4>
+    <a href="{{url_for('build.my_pokemon')}}">
+    <button type="button" class="btn btn-warning btn-lg" id = "button">
+    <h4>View</h4> 
+    <h6>My</h6>
+    <h4>Cards</h4>
+    </button>
+    </a>
     </div>
 
     <div id = "lookup">
     <a href="{{url_for('main.lookup')}}">
+    <button type="button" class="btn btn-info btn-lg" id = "button">
     <h4>Search</h4> 
     <h6>Pokemon</h6>
     <h4>Collection</h4>
+    </button>
     </a>
     </div>
 
     <div id = "battle">
+    <a href="{{url_for('build.battle')}}">
+    <button type="button" class="btn btn-danger btn-lg" id = "button">
     <h4>Battle</h4> 
     <h6>other</h6>
     <h4>Masters</h4>
+    </button>
+    </a>
     </div>
 
     </main>

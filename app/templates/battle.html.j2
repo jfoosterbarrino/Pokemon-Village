@@ -1,0 +1,16 @@
+{% extends 'base.html.j2' %}
+{% block title %}
+Battle
+{% endblock %}
+
+{% block content %}
+<h1 style = "text-align:center">Battle to Become the Best</h1>
+<hr>
+<br>
+
+{% for pokemaster in pokemasters %}
+        {% include './includes/attack_card.html.j2' %}
+{% endfor %}
+
+
+{% endblock %}

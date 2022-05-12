@@ -1,0 +1,299 @@
+.container{
+    margin-top: 50px;
+    padding: 50px;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+}
+
+body{
+    background-image: url("../images/pokemon.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    color:white;
+}
+
+
+header{
+    text-align: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 50px;
+    color: white;
+}
+#home_card{
+    background-color: salmon;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+main{
+    text-align: center;
+    color: black; 
+    margin-top:100px;
+    margin-bottom: 150px;
+    display: grid;
+    grid-gap:50px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "connect lookup battle"
+}
+
+#connect{
+    /* background-color:magenta; */
+    padding-top:5px;
+    padding-bottom: 5px;
+    text-align: center;
+    /* border: 2px solid white; */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    grid-area: connect;
+}
+#lookup{
+    /* background-color:cyan; */
+    color: black;
+    padding-top:5px;
+    padding-bottom: 5px;
+    text-align: center;
+    /* border: 2px solid white; */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    grid-area: lookup;
+}
+#battle{
+    /* background-color:yellow; */
+    color: black;
+    padding-top:5px;
+    padding-bottom: 5px;
+    text-align: center;
+    /* border: 2px solid white; */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    grid-area: battle;
+}
+
+#button{
+    border: 2px solid white;
+}
+
+#types{
+    color: white;
+    text-align: center;
+    margin-top:50px;
+    display: grid;
+    grid-gap:50px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "fire water electric grass ice normal_"
+    "fighting poison ground flying psychic bug"
+    "rock ghost dragon dark steel fairy"
+}
+
+#fire{
+    padding-top:5px;
+    padding-bottom: 5px;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    grid-area: fire;
+}
+#water{
+    padding-top:5px;
+    padding-bottom: 5px;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    grid-area: water;
+}
+#electric{
+    padding-top:5px;
+    padding-bottom: 5px;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    grid-area: electric;
+}
+#grass{
+    padding-top:5px;
+    padding-bottom: 5px;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    grid-area: grass;
+}
+#ice{
+    padding-top:5px;
+    padding-bottom: 5px;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    grid-area: ice;
+}
+#normal_{
+    padding-top:5px;
+    padding-bottom: 5px;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    grid-area: normal_;
+}
+#fighting{
+    padding-top:5px;
+    padding-bottom: 5px;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    grid-area: fighting;
+}
+#poison{
+    padding-top:5px;
+    padding-bottom: 5px;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    grid-area: poison;
+}
+#ground{
+    padding-top:5px;
+    padding-bottom: 5px;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    grid-area: ground;
+}
+#flying{
+    padding-top:5px;
+    padding-bottom: 5px;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    grid-area: flying;
+}
+#psychic{
+    padding-top:5px;
+    padding-bottom: 5px;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    grid-area: psychic;
+}
+#bug{
+    padding-top:5px;
+    padding-bottom: 5px;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    grid-area: bug;
+}
+#rock{
+    padding-top:5px;
+    padding-bottom: 5px;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    grid-area: rock;
+}
+#ghost{
+    padding-top:5px;
+    padding-bottom: 5px;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    grid-area: ghost;
+}
+#dragon{
+    padding-top:5px;
+    padding-bottom: 5px;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    grid-area: dragon;
+}
+#dark{
+    padding-top:5px;
+    padding-bottom: 5px;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    grid-area: dark;
+}
+#steel{
+    padding-top:5px;
+    padding-bottom: 5px;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    grid-area: steel;
+}
+#fairy{
+    padding-top:5px;
+    padding-bottom: 5px;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    grid-area: fairy;
+}
+
+#title{
+    color: white;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+img{
+    opacity: .7;
+}
+
+img:hover{
+    opacity: 1;
+}
+
+footer{
+    color:white;
+    text-align: center;
+    margin-top:20px;
+    margin-bottom: 20px;
+}
+
+.card{
+    color:black;
+    text-align: center;
+}
+article{
+    display:flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#winner{
+    background-image: url("../images/winner.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+#loser{
+    background-image: url("../images/loser2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
