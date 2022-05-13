@@ -43,6 +43,7 @@ class User(UserMixin, db.Model):
         self.wins = 0
         self.losses = 0
 
+
     def save(self):
         db.session.add(self)
         db.session.commit()

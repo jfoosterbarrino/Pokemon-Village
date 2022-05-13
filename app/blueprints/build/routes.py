@@ -46,28 +46,30 @@ def catch(name):
         if current_user.is_caught(name):
                 flash(f'You already have {name}', 'danger')
                 return render_template('lookup.html.j2', form =PokemonForm())
-        poke = Pokemon()
+        
         if len(current_user.pokemen.all()) <= 4:
+                poke = Pokemon.query.filter_by(name = name).first()
+                if not poke:
+                        poke = Pokemon()
 
-                url =  f'https://pokeapi.co/api/v2/pokemon/{name}'
-                response = requests.get(url)
-                if not response.ok:
-                        error_string = 'We had an error'
-                        return render_template('lookup.html.j2', error=error_string)
+                        url =  f'https://pokeapi.co/api/v2/pokemon/{name}'
+                        response = requests.get(url)
+                        if not response.ok:
+                                error_string = 'We had an error'
+                                return render_template('lookup.html.j2', error=error_string)
 
-                data = response.json()
-                poke.name = data["name"]
-                poke.hp = data["stats"][0]["base_stat"]
-                poke.ability = data["abilities"][0]["ability"]["name"]
-                poke.base_exp = data["base_experience"]
-                poke.sprite = data["sprites"]["other"]["dream_world"]["front_default"]
-                poke.attack = data["stats"][1]["base_stat"]
-                poke.defense = data["stats"][2]["base_stat"]
-                poke.sprite2 = data["sprites"]["front_shiny"]
+                        data = response.json()
+                        poke.name = data["name"]
+                        poke.hp = data["stats"][0]["base_stat"]
+                        poke.ability = data["abilities"][0]["ability"]["name"]
+                        poke.base_exp = data["base_experience"]
+                        poke.sprite = data["sprites"]["other"]["dream_world"]["front_default"]
+                        poke.attack = data["stats"][1]["base_stat"]
+                        poke.defense = data["stats"][2]["base_stat"]
+                        poke.sprite2 = data["sprites"]["front_shiny"]
 
                 current_user.collect_poke(poke)
                 flash(f'You have successfully caught {poke.name.title()}','success')
-                
                 return render_template('lookup.html.j2', form = PokemonForm())
 
         flash('You reached MAX of 5 pokemon','danger')
