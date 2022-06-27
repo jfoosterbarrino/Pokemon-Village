@@ -8,9 +8,14 @@ Battle
 <hr>
 <br>
 
+<div class="container">
+<div class="row">
 {% for pokemaster in pokemasters %}
+<div class="col-sm-4">
         {% include './includes/attack_card.html.j2' %}
+</div>
 {% endfor %}
-
+</div>
+</div>
 
 {% endblock %}
