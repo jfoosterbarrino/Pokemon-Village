@@ -40,8 +40,8 @@ class User(UserMixin, db.Model):
         self.email = data['email']
         self.password = self.hash_password(data['password'])
         self.icon = data['icon']
-        self.wins = 0
-        self.losses = 0
+        self.wins = data['wins']
+        self.losses = data['losses']
 
 
     def save(self):
