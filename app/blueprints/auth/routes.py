@@ -32,6 +32,10 @@ def logout():
 @auth.route('/register', methods = ['GET','POST'])
 def register():
     form = RegisterForm()
+    u = User.query.filter_by(email = form.email.data).first()
+    if u:
+        flash('Email already registered', "danger")
+        return redirect(url_for('auth.register'))
     if request.method == 'POST' and form.validate_on_submit():
         new_user_data={
             'first_name' : form.first_name.data.title(),
