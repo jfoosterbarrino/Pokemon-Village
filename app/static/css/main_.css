@@ -4,6 +4,7 @@
     background-color: black;
     justify-content: center;
     align-items: center;
+    width:100%;
 }
 
 body{
@@ -31,7 +32,7 @@ main{
     text-align: center;
     color: black; 
     margin-top:100px;
-    margin-bottom: 150px;
+    margin-bottom: 100px;
     display: grid;
     grid-gap:50px;
     grid-template-columns: 1fr 1fr 1fr;
